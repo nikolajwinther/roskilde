@@ -117,13 +117,13 @@ directory = "./"
 json_files = [f for f in os.listdir(directory) if f.endswith(".json")]
 bands = []
 bands_dict = {}
-replaceDate = "20240604"
+current_date = datetime.now()
+replaceDate = current_date.strftime("%Y%m%d")
 # Loop through each JSON file
 for json_file in json_files:
     band = {}
     # Construct full path to JSON file
     json_path = os.path.join(directory, json_file)
-    #band_name = json_file.replace("da-band-20240430-", "").replace(".json", "")
     band_name = json_file.replace("da-band-" + replaceDate + "-", "").replace(".json", "")
     rf_link = "https://www.roskilde-festival.dk/program/musik/" + band_name
     #print(band_name)
